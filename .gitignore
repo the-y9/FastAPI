@@ -1,2 +1,5 @@
+# Ignore the virtual environment folder
 .venv/
-.pyc
+
+# Ignore Python bytecode files
+*.pyc
