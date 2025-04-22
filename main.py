@@ -1,14 +1,12 @@
 # main.py
 from fastapi import FastAPI
-from backend.auth import handle_user_login
-from backend.models import UserLogin
+from backend.api.auth import router as auth_router 
 
 app = FastAPI()
 
-@app.post('/user-login')
-async def user_login(user: UserLogin):
-    # Call the handle_user_login function from auth.py
-    result = handle_user_login(user)
-    return {"message": result}
+@app.get('/')
+def root():
+    return {"page":"Root"}
 
+app.include_router(auth_router)
 
